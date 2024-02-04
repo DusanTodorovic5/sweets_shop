@@ -1,66 +1,145 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:sweets_shop/classes/pallete.dart';
+
+import '../classes/landing_background.dart';
+import 'login_page.dart';
+import 'register_page.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
+    return Stack(
       children: [
-        CustomBackground(),
+        const LandingBackground(
+          isLanding: true,
+        ),
         Center(
-          child: Text("TEST"),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "logo.png",
+                    width: 300,
+                  ),
+                  const Text(
+                    "Welcome to",
+                    style: TextStyle(
+                      color: Pallete.darkPurple,
+                      fontSize: 65,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Text(
+                    "Sweets Shop",
+                    style: TextStyle(
+                      color: Pallete.darkPurple,
+                      fontSize: 65,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Login or create account to\naccess our application",
+                    style: TextStyle(
+                      color: Pallete.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8 > 500
+                        ? 500
+                        : MediaQuery.of(context).size.width * 0.8,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ),
+                        );
+                      },
+                      style: createElevatedButtonStyle(),
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Pallete.white,
+                          fontSize: 45,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8 > 500
+                        ? 500
+                        : MediaQuery.of(context).size.width * 0.8,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RegisterPage(),
+                          ),
+                        );
+                      },
+                      style: createElevatedButtonStyle(),
+                      child: const Padding(
+                        padding: EdgeInsets.all(3.0),
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            color: Pallete.white,
+                            fontSize: 45,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ],
     );
   }
-}
 
-class CustomBackground extends StatelessWidget {
-  const CustomBackground({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Pallete.lightPurple,
-      child: CustomPaint(
-        painter: BackgroundPainter(),
-        child: Container(),
+  ButtonStyle createElevatedButtonStyle() {
+    return ElevatedButton.styleFrom(
+      foregroundColor: Pallete.white,
+      backgroundColor: Pallete.pink,
+      shadowColor: Colors.black,
+      elevation: 8,
+      padding: const EdgeInsets.symmetric(
+        vertical: 16,
+        horizontal: 32,
       ),
     );
-  }
-}
-
-class BackgroundPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint();
-
-    Path topTriangle = Path();
-    topTriangle.moveTo(0, 0);
-    topTriangle.lineTo(size.width, 0);
-    topTriangle.lineTo(size.width, 0.36 * size.height);
-    topTriangle.lineTo(size.width / 2, 0.5 * size.height);
-    topTriangle.lineTo(0, 0.36 * size.height);
-    topTriangle.close();
-
-    paint.color = Pallete.whiteColor;
-    canvas.drawPath(topTriangle, paint);
-
-    Path sideTriangle = Path();
-    sideTriangle.moveTo(size.width, 0.36 * size.height);
-    sideTriangle.lineTo(size.width / 2, 0.5 * size.height);
-    sideTriangle.lineTo(size.width, 0.65 * size.height);
-    sideTriangle.close();
-
-    paint.color = Pallete.darkPurple;
-    canvas.drawPath(sideTriangle, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
   }
 }
