@@ -38,16 +38,11 @@ class CustomBackground extends CustomPainter {
 }
 
 class LandingBackgroundPainter extends CustomBackground {
-  double triangleStartHeight = 0.36;
-  double sideTriangleEnd = 0.65;
-
-  LandingBackgroundPainter(bool vertical) : super(vertical) {
-    triangleStartHeight = vertical ? 0.36 : 0.15;
-    sideTriangleEnd = vertical ? 0.64 : 0.85;
-  }
+  LandingBackgroundPainter(bool vertical) : super(vertical);
 
   @override
   void paint(Canvas canvas, Size size) {
+    double triangleStartHeight = interpolate(size.width);
     Paint paint = Paint();
 
     Path topTriangle = Path();
@@ -64,11 +59,18 @@ class LandingBackgroundPainter extends CustomBackground {
     Path sideTriangle = Path();
     sideTriangle.moveTo(size.width, triangleStartHeight * size.height);
     sideTriangle.lineTo(size.width / 2, 0.5 * size.height);
-    sideTriangle.lineTo(size.width, sideTriangleEnd * size.height);
+    sideTriangle.lineTo(size.width, (1 - triangleStartHeight) * size.height);
     sideTriangle.close();
 
     paint.color = Pallete.darkPurple;
     canvas.drawPath(sideTriangle, paint);
+  }
+
+  double interpolate(double currentWidth) {
+    if (currentWidth > 1343) return 0.15;
+    if (currentWidth < 595) return 0.36;
+
+    return 0.36 + (currentWidth - 595) * (0.15 - 0.36) / (1343 - 595);
   }
 }
 
