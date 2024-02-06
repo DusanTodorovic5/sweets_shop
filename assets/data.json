@@ -1,0 +1,161 @@
+[
+    {
+        "category": "Cake",
+        "name": "Chocolate Cake",
+        "description": "Decadent chocolate cake: rich, moist, irresistible indulgence for dessert lovers.",
+        "ingredients": [
+            "1 box chocolate cake mix",
+            "1 can (12 oz) cola or soda water",
+            "3 eggs",
+            "1/2 cup vegetable oil"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Cake",
+        "name": "Ginger Cake",
+        "description": "Warm, spiced ginger cake: aromatic and comforting treat.",
+        "ingredients": [
+            "2 cups all-purpose flour",
+            "1 cup brown sugar",
+            "1/2 cup unsalted butter",
+            "1/2 cup molasses"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Cake",
+        "name": "Lemon and Raspberry Eton Mess",
+        "description": "Delightful mess of lemon, raspberry, and meringue.",
+        "ingredients": [
+            "2 cups fresh raspberries",
+            "1 lemon, zest and juice",
+            "1 cup whipped cream",
+            "1 cup meringue cookies"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Cake",
+        "name": "Lemon Cheesecake",
+        "description": "Creamy lemon cheesecake: tangy, rich, and satisfying dessert.",
+        "ingredients": [
+            "2 cups graham cracker crumbs",
+            "1/2 cup unsalted butter, melted",
+            "24 oz cream cheese, softened",
+            "1 cup granulated sugar"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Cake",
+        "name": "Roasted White Chocolate Fudge",
+        "description": "Velvety fudge made from roasted white chocolate.",
+        "ingredients": [
+            "2 cups white chocolate chips",
+            "1 can (14 oz) sweetened condensed milk",
+            "1/4 cup unsalted butter",
+            "1 teaspoon vanilla extract"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Cake",
+        "name": "Strawberry Cake",
+        "description": "Summery strawberry cake: sweet, light, and bursting with flavor.",
+        "ingredients": [
+            "1 box strawberry cake mix",
+            "3 large eggs",
+            "1/3 cup vegetable oil",
+            "1 cup diced fresh strawberries"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Sweet",
+        "name": "Blueberry Muffin",
+        "description": "Classic blueberry muffins: moist, tender, bursting with blueberries.",
+        "ingredients": [
+            "2 cups all-purpose flour",
+            "1/2 cup granulated sugar",
+            "2 teaspoons baking powder",
+            "1/2 teaspoon salt",
+            "1 cup milk",
+            "1/2 cup unsalted butter, melted",
+            "1 large egg",
+            "1 cup fresh blueberries"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Sweet",
+        "name": "Creme Brulee",
+        "description": "Silky-smooth custard with caramelized sugar crust: elegant French dessert.",
+        "ingredients": [
+            "2 cups heavy cream",
+            "1/2 cup granulated sugar",
+            "4 large egg yolks",
+            "1 teaspoon vanilla extract"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Sweet",
+        "name": "Donuts",
+        "description": "Fluffy fried doughnuts: sweet indulgence perfect for any occasion.",
+        "ingredients": [
+            "2 cups all-purpose flour",
+            "1/2 cup granulated sugar",
+            "2 teaspoons baking powder",
+            "1/2 teaspoon salt",
+            "2/3 cup milk",
+            "2 large eggs",
+            "2 tablespoons unsalted butter, melted",
+            "Oil for frying",
+            "Optional: glaze or powdered sugar for topping"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Sweet",
+        "name": "Pancakes",
+        "description": "Fluffy pancakes: breakfast favorite topped with syrup, fruit, or cream.",
+        "ingredients": [
+            "1 and 1/2 cups all-purpose flour",
+            "3 and 1/2 teaspoons baking powder",
+            "1 teaspoon salt",
+            "1 tablespoon granulated sugar",
+            "1 and 1/4 cups milk",
+            "1 large egg",
+            "3 tablespoons melted butter"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Sweet",
+        "name": "Strawberry Tarts",
+        "description": "Buttery pastry filled with fresh strawberries: delightful dessert.",
+        "ingredients": [
+            "1 sheet pre-made puff pastry",
+            "1 cup fresh strawberries, sliced",
+            "1/4 cup strawberry jam",
+            "Powdered sugar for dusting (optional)"
+        ],
+        "price": 5
+    },
+    {
+        "category": "Sweet",
+        "name": "Tiramisu",
+        "description": "Layered Italian dessert: espresso-soaked ladyfingers, mascarpone, cocoa.",
+        "ingredients": [
+            "1 cup brewed espresso, cooled",
+            "3 tablespoons coffee liqueur (e.g., Kahlua)",
+            "1 cup heavy cream",
+            "8 oz mascarpone cheese",
+            "1/2 cup granulated sugar",
+            "Ladyfingers",
+            "Cocoa powder for dusting"
+        ],
+        "price": 5
+    }
+]

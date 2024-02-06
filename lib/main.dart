@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sweets_shop/pages/landing_page.dart';
 
-void main() {
+import 'classes/manager.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Manager().loadProducts();
+
   runApp(const MyApp());
 }
 

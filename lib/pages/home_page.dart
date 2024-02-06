@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:sweets_shop/classes/manager.dart';
 import 'package:sweets_shop/classes/pallete.dart';
+
+import '../classes/product.dart';
 
 final List<List<String>> imgList = [
   [
@@ -82,7 +85,10 @@ class HomePage extends StatelessWidget {
                     enlargeCenterPage: true,
                     enlargeStrategy: CenterPageEnlargeStrategy.height,
                   ),
-                  items: imgList.map((item) => getCarouselImage(item)).toList(),
+                  items: Manager()
+                      .top6
+                      .map((item) => getCarouselImage(item))
+                      .toList(),
                 );
               },
             ),
@@ -105,7 +111,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget getCarouselImage(List<String> item) {
+  Widget getCarouselImage(Product item) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
@@ -125,8 +131,8 @@ class HomePage extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  item[0],
+                child: Image.asset(
+                  item.imagePath,
                   fit: BoxFit.cover,
                   height: Size.infinite.height,
                 ),
@@ -158,7 +164,7 @@ class HomePage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        item[1],
+                        item.name,
                         style: const TextStyle(
                           color: Pallete.white,
                           fontSize: 30,
@@ -166,7 +172,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        item[2],
+                        item.description,
                         style: const TextStyle(
                           color: Pallete.white,
                           fontSize: 20,
@@ -206,7 +212,7 @@ class HomePage extends StatelessWidget {
           elevation: 8,
           padding: const EdgeInsets.symmetric(
             vertical: 16,
-            horizontal: 75,
+            horizontal: 60,
           ),
         ),
         child: Padding(
