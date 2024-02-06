@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:sweets_shop/classes/manager.dart';
 import 'package:sweets_shop/classes/pallete.dart';
+import 'package:sweets_shop/pages/list_products.dart';
 
 import '../classes/product.dart';
 
@@ -101,8 +102,26 @@ class HomePage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                createButton("More Cakes", () {}),
-                createButton("More Sweets", () {}),
+                createButton("More Cakes", () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ListProductsPage(
+                        products: Manager().cakes,
+                      ),
+                    ),
+                  );
+                }),
+                createButton("More Sweets", () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ListProductsPage(
+                        products: Manager().sweets,
+                      ),
+                    ),
+                  );
+                }),
               ],
             ),
           ),

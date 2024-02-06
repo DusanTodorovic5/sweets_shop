@@ -5,13 +5,10 @@ import 'product.dart';
 
 class Manager {
   static final Manager _singleton = Manager._internal();
-  List<Product> products = [];
-
-  factory Manager() {
-    return _singleton;
-  }
-
+  factory Manager() => _singleton;
   Manager._internal();
+
+  List<Product> products = [];
 
   Future<void> loadProducts() async {
     String jsonString = await rootBundle.loadString('assets/data.json');
