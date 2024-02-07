@@ -4,6 +4,7 @@ import 'package:sweets_shop/classes/page_with_type.dart';
 
 import '../classes/manager.dart';
 import '../classes/product.dart';
+import 'product_page.dart';
 
 class ListProductsPage extends StatelessWidget implements PageWithType {
   ListProductsPage({super.key, required this.products});
@@ -11,7 +12,7 @@ class ListProductsPage extends StatelessWidget implements PageWithType {
   List<Product> products = [];
 
   @override
-  PageType get pageType => PageType.onlyLeft;
+  PageType get pageType => PageType.onlyRight;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,17 @@ class ListProductsPage extends StatelessWidget implements PageWithType {
         shrinkWrap: true,
         children: products
             .map(
-              (e) => createProductTile(e),
+              (e) => InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductPage(product: e),
+                    ),
+                  );
+                },
+                child: createProductTile(e),
+              ),
             )
             .toList(),
       ),
