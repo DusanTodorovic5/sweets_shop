@@ -9,7 +9,17 @@
             "3 eggs",
             "1/2 cup vegetable oil"
         ],
-        "price": 5
+        "price": 5,
+        "comments": [
+            {
+                "user": "Dusan", 
+                "text": "Wow, very nice, i like this sooooo much"
+            },
+            {
+                "user": "Dusan2", 
+                "text": "its ok."
+            }
+        ]
     },
     {
         "category": "Cake",

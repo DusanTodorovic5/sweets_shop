@@ -30,7 +30,7 @@ class WebAppBarState<T extends WebAppBar> extends BaseAppBarState<T> {
           ),
         ),
         Visibility(
-          visible: widget.currentPage.pageType == PageType.onlyLeft ||
+          visible: widget.currentPage.pageType == PageType.onlyRight ||
               widget.currentPage.pageType == PageType.full,
           child: Row(
             mainAxisSize: MainAxisSize.min,
