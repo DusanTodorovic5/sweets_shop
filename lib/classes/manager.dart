@@ -156,4 +156,6 @@ class Manager {
   void logout() {
     user = User.empty;
   }
+
+  bool get isWeb => kIsWeb;
 }

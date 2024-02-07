@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sweets_shop/classes/page_with_type.dart';
 
+import '../../pages/cart_page.dart';
+import '../../pages/notifications_page.dart';
+import '../../pages/profile_page.dart';
 import '../pallete.dart';
 import "base_app_bar.dart";
 
@@ -21,7 +24,14 @@ class WebAppBarState<T extends WebAppBar> extends BaseAppBarState<T> {
         Visibility(
           visible: widget.currentPage.pageType == PageType.full,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProfilePage(),
+                ),
+              );
+            },
             icon: const Icon(
               Icons.person,
               color: Pallete.pink,
@@ -36,7 +46,14 @@ class WebAppBarState<T extends WebAppBar> extends BaseAppBarState<T> {
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CartPage(),
+                    ),
+                  );
+                },
                 icon: const Icon(
                   Icons.shopping_cart,
                   color: Pallete.pink,
@@ -44,7 +61,14 @@ class WebAppBarState<T extends WebAppBar> extends BaseAppBarState<T> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NotificationsPage(),
+                    ),
+                  );
+                },
                 icon: const Icon(
                   Icons.notifications,
                   color: Pallete.pink,
