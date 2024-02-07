@@ -1,43 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:sweets_shop/classes/pallete.dart';
+import 'package:sweets_shop/classes/page_with_type.dart';
 
+import '../classes/manager.dart';
 import '../classes/product.dart';
 
-class ListProductsPage extends StatelessWidget {
+class ListProductsPage extends StatelessWidget implements PageWithType {
   ListProductsPage({super.key, required this.products});
 
   List<Product> products = [];
 
   @override
+  PageType get pageType => PageType.onlyLeft;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Icon(
-              Icons.person,
-              color: Pallete.pink,
-              size: 45,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  Icons.shopping_cart,
-                  color: Pallete.pink,
-                  size: 45,
-                ),
-                Icon(
-                  Icons.notifications,
-                  color: Pallete.pink,
-                  size: 45,
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
+      appBar: Manager().getAppBar(this),
       body: ListView(
         shrinkWrap: true,
         children: products

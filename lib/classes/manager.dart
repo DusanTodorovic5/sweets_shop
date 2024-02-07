@@ -1,6 +1,11 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:sweets_shop/classes/appbar/phone_app_bar.dart';
 
+import 'appbar/web_app_bar.dart';
+import 'page_with_type.dart';
 import 'product.dart';
 
 class Manager {
@@ -32,5 +37,13 @@ class Manager {
     var shuffledProducts = products.toList();
     shuffledProducts.shuffle();
     return shuffledProducts.sublist(0, 6);
+  }
+
+  AppBar getAppBar(PageWithType currentPage) {
+    return AppBar(
+      title: kIsWeb
+          ? WebAppBar(currentPage: currentPage)
+          : PhoneAppBar(currentPage: currentPage),
+    );
   }
 }

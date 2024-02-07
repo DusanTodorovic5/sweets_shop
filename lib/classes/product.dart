@@ -42,7 +42,8 @@ class Product {
     );
   }
 
-  String get imagePath => "${category.name}/${name.replaceAll(" ", "_")}.png";
+  String get imagePath =>
+      "assets/${category.name}/${name.replaceAll(" ", "_")}.png";
 }
 
 Category categoryFromJson(String category) {
