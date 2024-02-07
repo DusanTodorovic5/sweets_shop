@@ -20,11 +20,7 @@ class Manager {
   List<User> users = [];
   List<Product> products = [];
 
-  User user = User(
-    username: "None",
-    password: "none",
-    category: "none",
-  );
+  User user = User.empty;
 
   List<CartItem> cart = [];
 
@@ -158,10 +154,6 @@ class Manager {
   }
 
   void logout() {
-    user = User(
-      username: "None",
-      password: "none",
-      category: "none",
-    );
+    user = User.empty;
   }
 }

@@ -41,7 +41,7 @@ class PhoneAppBarState<T extends PhoneAppBar> extends BaseAppBarState<T> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ProfilePage(),
+                  builder: (context) => ProfilePage(),
                 ),
               );
             },
