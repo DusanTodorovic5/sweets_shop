@@ -24,8 +24,10 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const Material(
-        child: LandingPage(),
+      home: const SafeArea(
+        child: Material(
+          child: LandingPage(),
+        ),
       ),
     );
   }

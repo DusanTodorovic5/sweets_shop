@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
                           'Username',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 45,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -55,7 +55,7 @@ class LoginPage extends StatelessWidget {
                             padding: EdgeInsets.all(8.0),
                             child: TextField(
                               style: TextStyle(
-                                fontSize: 30.0,
+                                fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
                                 color: Pallete.grey,
                               ),
@@ -73,7 +73,7 @@ class LoginPage extends StatelessWidget {
                           'Password',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 45,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -86,7 +86,7 @@ class LoginPage extends StatelessWidget {
                             padding: EdgeInsets.all(8.0),
                             child: TextField(
                               style: TextStyle(
-                                fontSize: 25.0,
+                                fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
                                 color: Pallete.grey,
                               ),
@@ -110,17 +110,17 @@ class LoginPage extends StatelessWidget {
                             'Don\'t remember password? Recover it.',
                             style: TextStyle(
                               color: Pallete.grey,
-                              fontSize: 23,
+                              fontSize: 15,
                             ),
                           ),
                         ),
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(40),
+                      padding: const EdgeInsets.all(20),
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.8 > 500
-                            ? 500
+                        width: MediaQuery.of(context).size.width * 0.8 > 300
+                            ? 300
                             : MediaQuery.of(context).size.width * 0.8,
                         child: ElevatedButton(
                           onPressed: () {
@@ -138,8 +138,8 @@ class LoginPage extends StatelessWidget {
                             shadowColor: Colors.black,
                             elevation: 8,
                             padding: const EdgeInsets.symmetric(
-                              vertical: 16,
-                              horizontal: 32,
+                              vertical: 5,
+                              horizontal: 10,
                             ),
                           ),
                           child: const Padding(
@@ -148,7 +148,7 @@ class LoginPage extends StatelessWidget {
                               "Sign In",
                               style: TextStyle(
                                 color: Pallete.white,
-                                fontSize: 45,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

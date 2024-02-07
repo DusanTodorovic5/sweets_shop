@@ -15,28 +15,44 @@ class PhoneAppBar extends BaseAppBar {
 class PhoneAppBarState<T extends PhoneAppBar> extends BaseAppBarState<T> {
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Icon(
-          Icons.person,
-          color: Pallete.pink,
-          size: 45,
+        Visibility(
+          visible: widget.currentPage.pageType == PageType.full,
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.person,
+              color: Pallete.pink,
+              size: 30,
+            ),
+          ),
         ),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              Icons.shopping_cart,
-              color: Pallete.pink,
-              size: 45,
-            ),
-            Icon(
-              Icons.notifications,
-              color: Pallete.pink,
-              size: 45,
-            ),
-          ],
+        Visibility(
+          visible: widget.currentPage.pageType == PageType.onlyLeft ||
+              widget.currentPage.pageType == PageType.full,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.shopping_cart,
+                  color: Pallete.pink,
+                  size: 30,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications,
+                  color: Pallete.pink,
+                  size: 30,
+                ),
+              ),
+            ],
+          ),
         )
       ],
     );

@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget implements PageWithType {
 
   Widget getCarouselImage(Product item) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
@@ -116,9 +116,9 @@ class HomePage extends StatelessWidget implements PageWithType {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    left: 16,
-                    right: 16,
-                    bottom: 32,
+                    left: 8,
+                    right: 8,
+                    bottom: 16,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -129,7 +129,7 @@ class HomePage extends StatelessWidget implements PageWithType {
                         item.name,
                         style: const TextStyle(
                           color: Pallete.white,
-                          fontSize: 30,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -137,7 +137,7 @@ class HomePage extends StatelessWidget implements PageWithType {
                         item.description,
                         style: const TextStyle(
                           color: Pallete.white,
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -155,7 +155,7 @@ class HomePage extends StatelessWidget implements PageWithType {
   Widget createButton(String text, Function action) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.circular(16.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.5),
@@ -173,8 +173,8 @@ class HomePage extends StatelessWidget implements PageWithType {
           shadowColor: Colors.black,
           elevation: 8,
           padding: const EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 60,
+            vertical: 8,
+            horizontal: 32,
           ),
         ),
         child: Padding(
@@ -183,7 +183,7 @@ class HomePage extends StatelessWidget implements PageWithType {
             text,
             style: const TextStyle(
               color: Pallete.white,
-              fontSize: 30,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),

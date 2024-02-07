@@ -25,15 +25,18 @@ class LandingPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Image.asset(
                     "assets/logo.png",
-                    width: 300,
+                    width: 180,
                   ),
                   const Text(
                     "Welcome to",
                     style: TextStyle(
                       color: Pallete.darkPurple,
-                      fontSize: 65,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -41,7 +44,7 @@ class LandingPage extends StatelessWidget {
                     "Sweets Shop",
                     style: TextStyle(
                       color: Pallete.darkPurple,
-                      fontSize: 65,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -56,7 +59,7 @@ class LandingPage extends StatelessWidget {
                     "Login or create account to\naccess our application",
                     style: TextStyle(
                       color: Pallete.white,
-                      fontSize: 32,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
@@ -65,8 +68,8 @@ class LandingPage extends StatelessWidget {
                     height: 35,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.8 > 500
-                        ? 500
+                    width: MediaQuery.of(context).size.width * 0.8 > 300
+                        ? 300
                         : MediaQuery.of(context).size.width * 0.8,
                     child: ElevatedButton(
                       onPressed: () {
@@ -82,7 +85,7 @@ class LandingPage extends StatelessWidget {
                         "Login",
                         style: TextStyle(
                           color: Pallete.white,
-                          fontSize: 45,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -92,8 +95,8 @@ class LandingPage extends StatelessWidget {
                     height: 30,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.8 > 500
-                        ? 500
+                    width: MediaQuery.of(context).size.width * 0.8 > 300
+                        ? 300
                         : MediaQuery.of(context).size.width * 0.8,
                     child: ElevatedButton(
                       onPressed: () {
@@ -111,7 +114,7 @@ class LandingPage extends StatelessWidget {
                           "Sign Up",
                           style: TextStyle(
                             color: Pallete.white,
-                            fontSize: 45,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

@@ -30,7 +30,7 @@ class ListProductsPage extends StatelessWidget implements PageWithType {
 
   Widget createProductTile(Product product) {
     return Padding(
-      padding: const EdgeInsets.all(14.0),
+      padding: const EdgeInsets.all(10.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -40,11 +40,15 @@ class ListProductsPage extends StatelessWidget implements PageWithType {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRect(
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
               child: Image.asset(
                 product.imagePath,
                 width: double.infinity,
-                height: 200.0,
+                height: 150.0,
                 fit: BoxFit.cover,
               ),
             ),
@@ -57,18 +61,18 @@ class ListProductsPage extends StatelessWidget implements PageWithType {
                     product.name,
                     style: const TextStyle(
                       color: Pallete.white,
-                      fontSize: 18.0,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(
-                    height: 8.0,
+                    height: 6.0,
                   ),
                   Text(
                     product.description,
                     style: const TextStyle(
                       color: Pallete.white,
-                      fontSize: 14.0,
+                      fontSize: 12.0,
                     ),
                   ),
                 ],
