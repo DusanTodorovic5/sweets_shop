@@ -7,6 +7,7 @@ import 'classes/manager.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Manager().loadProducts();
+  await Manager().loadUsers();
 
   runApp(const MyApp());
 }
