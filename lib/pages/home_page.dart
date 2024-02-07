@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sweets_shop/classes/manager.dart';
 import 'package:sweets_shop/classes/pallete.dart';
 import 'package:sweets_shop/pages/list_products.dart';
+import 'package:sweets_shop/pages/product_page.dart';
 
 import '../classes/product.dart';
 import '../classes/page_with_type.dart';
@@ -30,7 +31,23 @@ class HomePage extends StatelessWidget implements PageWithType {
                   ),
                   items: Manager()
                       .top6
-                      .map((item) => getCarouselImage(item))
+                      .map(
+                        (item) => InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProductPage(
+                                  product: item,
+                                ),
+                              ),
+                            );
+                          },
+                          child: getCarouselImage(
+                            item,
+                          ),
+                        ),
+                      )
                       .toList(),
                 );
               },

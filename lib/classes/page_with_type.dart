@@ -1,6 +1,6 @@
 enum PageType {
   full,
-  onlyLeft,
+  onlyRight,
   nothing,
 }
 
