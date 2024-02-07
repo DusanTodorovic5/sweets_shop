@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:sweets_shop/pages/home_page.dart';
 
+import '../classes/manager.dart';
 import '../classes/pallete.dart';
 import '../classes/landing_background.dart';
+import 'admin_page.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+
+  String username = "";
+  String password = "";
 
   @override
   Widget build(BuildContext context) {
@@ -51,20 +56,20 @@ class LoginPage extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
                             child: TextField(
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
                                 color: Pallete.grey,
                               ),
-                              decoration: InputDecoration(
+                              onChanged: setUsername,
+                              decoration: const InputDecoration(
                                 hintText: 'Type username here',
                                 border: InputBorder.none,
                                 contentPadding: EdgeInsets.all(16.0),
                               ),
-                              obscureText: true,
                             ),
                           ),
                         ),
@@ -82,15 +87,16 @@ class LoginPage extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
                             child: TextField(
-                              style: TextStyle(
+                              onChanged: setPassword,
+                              style: const TextStyle(
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
                                 color: Pallete.grey,
                               ),
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 hintText: '********',
                                 border: InputBorder.none,
                                 contentPadding: EdgeInsets.all(16.0),
@@ -123,15 +129,7 @@ class LoginPage extends StatelessWidget {
                             ? 300
                             : MediaQuery.of(context).size.width * 0.8,
                         child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomePage(),
-                              ),
-                            );
-                          },
+                          onPressed: () => tryLogin(context),
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Pallete.white,
                             backgroundColor: Pallete.pink,
@@ -162,6 +160,42 @@ class LoginPage extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+
+  void setUsername(String value) => username = value;
+  void setPassword(String value) => password = value;
+
+  void tryLogin(context) {
+    if (!Manager().canLogin(username, password)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "Wrong username or password",
+          ),
+        ),
+      );
+      return;
+    }
+
+    if (!Manager().canLoginOnPlatform) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "Admin can only open web version of application",
+          ),
+        ),
+      );
+      return;
+    }
+
+    Navigator.pop(context);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            Manager().user.isAdmin ? const AdminPage() : const HomePage(),
       ),
     );
   }
