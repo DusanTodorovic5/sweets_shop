@@ -28,6 +28,18 @@ class _ProductPageState extends State<ProductPage> {
               widget,
               currentName: "Product",
             ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  createButton("Leave a comment", leaveAComment),
+                  createButton("Add to cart", addToCart),
+                ],
+              ),
+            ),
             body: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -188,16 +200,6 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      createButton("Leave a comment", leaveAComment),
-                      createButton("Add to cart", addToCart),
-                    ],
-                  ),
-                )
               ],
             ),
           );
