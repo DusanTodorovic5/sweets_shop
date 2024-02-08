@@ -104,24 +104,31 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            createButton(
-              "Save",
-              () {},
-            ),
-            createButton(
-              "Change password",
-              () {
-                showModalBottomSheet(
-                  backgroundColor: Pallete.white,
-                  context: context,
-                  builder: (BuildContext context) {
-                    return passwordModalDialog(context);
-                  },
-                );
-              },
-            ),
-          ],
+          children: Manager().isWeb
+              ? [
+                  createButton(
+                    "Save",
+                    () {},
+                  ),
+                ]
+              : [
+                  createButton(
+                    "Save",
+                    () {},
+                  ),
+                  createButton(
+                    "Change password",
+                    () {
+                      showModalBottomSheet(
+                        backgroundColor: Pallete.white,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return passwordModalDialog(context);
+                        },
+                      );
+                    },
+                  ),
+                ],
         ),
       ),
       appBar: Manager().getAppBar(
@@ -144,18 +151,40 @@ class _ProfilePageState extends State<ProfilePage> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            createTextField(emailController, "Email"),
-            createTextField(usernameController, "Username"),
-            createTextField(nameController, "Name"),
-            createTextField(surnameController, "Surname"),
-            createTextField(addressController, "Address"),
-          ],
-        ),
+      body: Manager().isWeb
+          ? Column(
+              children: [
+                createMainFields(),
+                const Padding(
+                  padding: EdgeInsets.all(18.0),
+                  child: Text(
+                    'Change Password',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Pallete.pink,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+                createPasswordPrompt(),
+              ],
+            )
+          : createMainFields(),
+    );
+  }
+
+  Padding createMainFields() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          createTextField(emailController, "Email"),
+          createTextField(usernameController, "Username"),
+          createTextField(nameController, "Name"),
+          createTextField(surnameController, "Surname"),
+          createTextField(addressController, "Address"),
+        ],
       ),
     );
   }
@@ -232,9 +261,9 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.all(3.0),
             child: Text(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Pallete.white,
-                fontSize: 14,
+                fontSize: Manager().isWeb ? 28 : 14,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -253,6 +282,7 @@ class _ProfilePageState extends State<ProfilePage> {
             'Change Password',
             style: TextStyle(
               fontWeight: FontWeight.bold,
+              color: Pallete.pink,
               fontSize: 20.0,
             ),
           ),

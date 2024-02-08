@@ -137,7 +137,7 @@ class Manager {
   }
 
   bool get canLoginOnPlatform =>
-      !kIsWeb || user.username.toLowerCase() != "admin";
+      !(!kIsWeb && user.username.toLowerCase() == "admin");
 
   bool canLoginUser(User user, String password) {
     if (user.canLogin(password)) {

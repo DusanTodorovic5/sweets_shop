@@ -4,6 +4,7 @@ import 'package:sweets_shop/classes/page_with_type.dart';
 
 import '../classes/manager.dart';
 import '../classes/product.dart';
+import '../widgets/web_grid.dart';
 import 'product_page.dart';
 
 class ListProductsPage extends StatelessWidget implements PageWithType {
@@ -30,13 +31,7 @@ class ListProductsPage extends StatelessWidget implements PageWithType {
     );
   }
 
-  GridView createGridListForWeb(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 3,
-      shrinkWrap: true,
-      children: productsToWidgets(context),
-    );
-  }
+  Widget createGridListForWeb(BuildContext context) => WebGrid(items: products);
 
   ListView createMobilePhoneList(BuildContext context) {
     return ListView(
