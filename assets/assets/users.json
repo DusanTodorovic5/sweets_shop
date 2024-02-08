@@ -1,0 +1,29 @@
+[
+    {
+        "username": "admin",
+        "password": "admin123",
+        "category": "admin",
+        "name": "Admin",
+        "surname": "Adminovic",
+        "address": "Adminova 23",
+        "email": "admin@admin.com"
+    },
+    {
+        "username": "Dusan",
+        "password": "Dusan123",
+        "category": "user",
+        "name": "Dusan",
+        "surname": "Todorovic",
+        "address": "Dusanova 123",
+        "email": "dusan@dusan.com"
+    },
+    {
+        "username": "",
+        "password": "",
+        "category": "user",
+        "name": "Dusan",
+        "surname": "Todorovic",
+        "address": "Dusanova 123",
+        "email": "dusan@dusan.com"
+    }
+]
