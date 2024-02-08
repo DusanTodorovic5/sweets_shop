@@ -22,6 +22,7 @@ class _WebGridState extends State<WebGrid> {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
@@ -33,18 +34,21 @@ class _WebGridState extends State<WebGrid> {
                 children: widget.items
                     .skip(_currentPage * 3)
                     .take(3)
-                    .map((item) => InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ProductPage(
-                                  product: item,
+                    .map((item) => SizedBox(
+                          height: 300,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ProductPage(
+                                    product: item,
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
-                          child: createProductTile(item),
+                              );
+                            },
+                            child: createProductTile(item),
+                          ),
                         ))
                     .toList(),
               ),
