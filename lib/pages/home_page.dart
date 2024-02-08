@@ -16,7 +16,14 @@ class HomePage extends StatelessWidget implements PageWithType {
     return Scaffold(
       appBar: Manager().getAppBar(this, currentName: "Home"),
       body: Manager().isWeb
-          ? createCarousel()
+          ? Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                createCarousel(),
+              ],
+            )
           : Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
