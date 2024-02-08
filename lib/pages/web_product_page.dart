@@ -4,31 +4,49 @@ import 'package:sweets_shop/classes/pallete.dart';
 import 'package:sweets_shop/classes/product.dart';
 
 import '../classes/manager.dart';
-import 'web_product_page.dart';
 
-class ProductPage extends StatefulWidget implements PageWithType {
-  const ProductPage({super.key, required this.product});
+class WebProductPage extends StatefulWidget implements PageWithType {
+  const WebProductPage({super.key, required this.product});
 
   final Product product;
 
   @override
-  State<ProductPage> createState() => _ProductPageState();
+  State<WebProductPage> createState() => _WebProductPageState();
 
   @override
   PageType get pageType => PageType.onlyRight;
 }
 
-class _ProductPageState extends State<ProductPage> {
+class _WebProductPageState extends State<WebProductPage> {
   @override
   Widget build(BuildContext context) {
-    return Manager().isWeb
-        ? WebProductPage(product: widget.product)
-        : Scaffold(
-            appBar: Manager().getAppBar(
-              widget,
-              currentName: "Product",
+    return Scaffold(
+      appBar: Manager().getAppBar(
+        widget,
+        currentName: "Product",
+      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                    20,
+                  ),
+                  child: Image.asset(
+                    widget.product.imagePath,
+                  ),
+                ),
+              ),
             ),
-            body: Column(
+          ),
+          Expanded(
+            child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -50,7 +68,7 @@ class _ProductPageState extends State<ProductPage> {
                                 Text(
                                   widget.product.name,
                                   style: const TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 35,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -60,7 +78,7 @@ class _ProductPageState extends State<ProductPage> {
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 3,
                                   style: const TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -73,28 +91,25 @@ class _ProductPageState extends State<ProductPage> {
                           Text(
                             "\$${widget.product.price}",
                             style: const TextStyle(
-                              fontSize: 25,
+                              fontSize: 35,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    Image.asset(
-                      widget.product.imagePath,
-                    ),
                     const SizedBox(
                       height: 10,
                     ),
                     Card(
                       elevation: 0,
-                      color: Colors.white,
                       child: ExpansionTile(
+                        initiallyExpanded: true,
                         backgroundColor: Pallete.white,
                         title: const Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Expand for Ingredients',
+                            'Ingridients',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -191,16 +206,26 @@ class _ProductPageState extends State<ProductPage> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      createButton("Leave a comment", leaveAComment),
-                      createButton("Add to cart", addToCart),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: createButton("Leave a comment", leaveAComment),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: createButton("Add to cart", addToCart),
+                      ),
                     ],
                   ),
                 )
               ],
             ),
-          );
+          ),
+        ],
+      ),
+    );
   }
 
   void leaveAComment() {
@@ -251,7 +276,7 @@ class _ProductPageState extends State<ProductPage> {
             text,
             style: const TextStyle(
               color: Pallete.white,
-              fontSize: 16,
+              fontSize: 26,
               fontWeight: FontWeight.bold,
             ),
           ),

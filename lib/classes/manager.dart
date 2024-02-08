@@ -58,15 +58,20 @@ class Manager {
     PageWithType currentPage, {
     String header = "",
     Widget? trailing,
+    String? currentName,
   }) {
     return AppBar(
-      centerTitle: true,
-      automaticallyImplyLeading: !kIsWeb,
+      backgroundColor: isWeb ? Pallete.darkPurple : Pallete.white,
+      centerTitle: !isWeb,
+      automaticallyImplyLeading: !isWeb,
       iconTheme: const IconThemeData(
         color: Pallete.pink,
       ),
-      title: kIsWeb
-          ? WebAppBar(currentPage: currentPage)
+      title: isWeb
+          ? WebAppBar(
+              currentPage: currentPage,
+              underlineName: currentName ?? "",
+            )
           : PhoneAppBar(
               currentPage: currentPage,
               header: header,

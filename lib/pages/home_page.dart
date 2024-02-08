@@ -14,76 +14,89 @@ class HomePage extends StatelessWidget implements PageWithType {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Manager().getAppBar(this),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Expanded(
-            child: Builder(
-              builder: (context) {
-                return CarouselSlider(
-                  options: CarouselOptions(
-                    height: Size.infinite.height,
-                    enlargeCenterPage: true,
-                    enlargeStrategy: CenterPageEnlargeStrategy.height,
-                  ),
-                  items: Manager()
-                      .top6
-                      .map(
-                        (item) => InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ProductPage(
-                                  product: item,
-                                ),
-                              ),
-                            );
-                          },
-                          child: getCarouselImage(
-                            item,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                );
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              bottom: 12,
-              top: 16,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      appBar: Manager().getAppBar(this, currentName: "Home"),
+      body: Manager().isWeb
+          ? Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: createCarousel(),
+            )
+          : Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                createButton("More Cakes", () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ListProductsPage(
-                        products: Manager().cakes,
-                      ),
-                    ),
-                  );
-                }),
-                createButton("More Sweets", () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ListProductsPage(
-                        products: Manager().sweets,
-                      ),
-                    ),
-                  );
-                }),
+                createCarousel(),
+                createBottomButtons(context),
               ],
             ),
-          ),
+    );
+  }
+
+  Expanded createCarousel() {
+    return Expanded(
+      child: Builder(
+        builder: (context) {
+          return CarouselSlider(
+            options: CarouselOptions(
+              height: Size.infinite.height,
+              enlargeCenterPage: true,
+              enlargeStrategy: CenterPageEnlargeStrategy.height,
+            ),
+            items: Manager()
+                .top6
+                .map(
+                  (item) => InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductPage(
+                            product: item,
+                          ),
+                        ),
+                      );
+                    },
+                    child: getCarouselImage(
+                      item,
+                    ),
+                  ),
+                )
+                .toList(),
+          );
+        },
+      ),
+    );
+  }
+
+  Padding createBottomButtons(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        bottom: 12,
+        top: 16,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          createButton("More Cakes", () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ListProductsPage(
+                  products: Manager().cakes,
+                ),
+              ),
+            );
+          }),
+          createButton("More Sweets", () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ListProductsPage(
+                  products: Manager().sweets,
+                ),
+              ),
+            );
+          }),
         ],
       ),
     );

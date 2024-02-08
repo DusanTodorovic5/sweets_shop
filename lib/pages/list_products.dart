@@ -14,29 +14,53 @@ class ListProductsPage extends StatelessWidget implements PageWithType {
   @override
   PageType get pageType => PageType.onlyRight;
 
+  String get pageName =>
+      products[0].category == Category.cake ? "Cakes" : "Sweets";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Manager().getAppBar(this),
-      body: ListView(
-        shrinkWrap: true,
-        children: products
-            .map(
-              (e) => InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductPage(product: e),
-                    ),
-                  );
-                },
-                child: createProductTile(e),
-              ),
-            )
-            .toList(),
+      appBar: Manager().getAppBar(
+        this,
+        currentName: pageName,
       ),
+      body: Manager().isWeb
+          ? createGridListForWeb(context)
+          : createMobilePhoneList(context),
     );
+  }
+
+  GridView createGridListForWeb(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 3,
+      shrinkWrap: true,
+      children: productsToWidgets(context),
+    );
+  }
+
+  ListView createMobilePhoneList(BuildContext context) {
+    return ListView(
+      shrinkWrap: true,
+      children: productsToWidgets(context),
+    );
+  }
+
+  List<InkWell> productsToWidgets(BuildContext context) {
+    return products
+        .map(
+          (e) => InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductPage(product: e),
+                ),
+              );
+            },
+            child: createProductTile(e),
+          ),
+        )
+        .toList();
   }
 
   Widget createProductTile(Product product) {
@@ -59,7 +83,7 @@ class ListProductsPage extends StatelessWidget implements PageWithType {
               child: Image.asset(
                 product.imagePath,
                 width: double.infinity,
-                height: 150.0,
+                height: Manager().isWeb ? 250 : 150.0,
                 fit: BoxFit.cover,
               ),
             ),

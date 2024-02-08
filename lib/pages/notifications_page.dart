@@ -26,6 +26,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
       appBar: Manager().getAppBar(
         widget,
         header: "Notifications",
+        currentName: "Notifications",
       ),
       body: ListView(
         children: widget.notifications.map((e) {

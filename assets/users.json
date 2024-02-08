@@ -16,5 +16,14 @@
         "surname": "Todorovic",
         "address": "Dusanova 123",
         "email": "dusan@dusan.com"
+    },
+    {
+        "username": "",
+        "password": "",
+        "category": "user",
+        "name": "Dusan",
+        "surname": "Todorovic",
+        "address": "Dusanova 123",
+        "email": "dusan@dusan.com"
     }
 ]

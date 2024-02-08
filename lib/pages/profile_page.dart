@@ -127,6 +127,7 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: Manager().getAppBar(
         widget,
         header: "Account Settings",
+        currentName: "Profile",
         trailing: IconButton(
           icon: const Icon(
             Icons.logout,

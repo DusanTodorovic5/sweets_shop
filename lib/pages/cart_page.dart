@@ -21,6 +21,7 @@ class _CartPageState extends State<CartPage> {
       appBar: Manager().getAppBar(
         widget,
         header: "My Cart",
+        currentName: "Cart",
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
