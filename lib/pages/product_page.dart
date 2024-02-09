@@ -218,7 +218,17 @@ class _ProductPageState extends State<ProductPage> {
     });
   }
 
-  void addToCart() => Manager().addToCart(widget.product);
+  void addToCart() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          Manager().addToCart(widget.product)
+              ? "Added to cart"
+              : "Already added to cart",
+        ),
+      ),
+    );
+  }
 
   Widget createButton(String text, Function action) {
     return Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sweets_shop/classes/product.dart';
 
 import '../classes/manager.dart';
 import '../classes/pallete.dart';
@@ -258,7 +259,20 @@ class AdminPage extends StatelessWidget {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Product p = Product(
+                  name: "Chocolate Cake",
+                  description: "description",
+                  category: Category.cake,
+                  ingridients: [
+                    "a",
+                    "b",
+                  ],
+                  comments: [],
+                  price: 10,
+                );
+                Manager().addProduct(p);
+              },
               style: ElevatedButton.styleFrom(
                 foregroundColor: Pallete.white,
                 backgroundColor: Pallete.pink,

@@ -297,7 +297,16 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           createButton(
             "Save",
-            () {},
+            () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text(
+                    "User modified",
+                  ),
+                ),
+              );
+              Manager().user = user;
+            },
           ),
         ],
       ),

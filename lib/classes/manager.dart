@@ -163,4 +163,6 @@ class Manager {
   }
 
   bool get isWeb => kIsWeb;
+
+  void addProduct(Product p) => products.add(p);
 }
